@@ -12,11 +12,5 @@ export const useDarkMode = () => {
         console.log('toggled');
     },[darkMode])
 
-    // const setValue = value => {
-    //     setStoredValue(value);
-    //     window.localStorage.setItem(key, JSON.stringify(value));
-    // };
-
-    // return [mode, setMode, storedValue, setStoredValue];
     return [darkMode, setDarkMode];
 }
