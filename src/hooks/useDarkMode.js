@@ -4,12 +4,19 @@ import { useLocalStorage } from './useLocalStorage';
 
 
 export const useDarkMode = () => {
-    const [mode, setMode] = useLocalStorage('dark-mode');
+    const [darkMode, setDarkMode] = useLocalStorage(false);
     const body = document.querySelector('body');
 
     useEffect(() => {
-        mode === 'dark-mode' ? body.classList.add('dark-mode') : body.classList.remove('dark-mode');
-    },[mode])
+        darkMode ? body.classList.add('dark-mode') : body.classList.remove('dark-mode');
+        console.log('toggled');
+    },[darkMode])
 
-    return [mode, setMode, storedValue, setStoredValue];
+    // const setValue = value => {
+    //     setStoredValue(value);
+    //     window.localStorage.setItem(key, JSON.stringify(value));
+    // };
+
+    // return [mode, setMode, storedValue, setStoredValue];
+    return [darkMode, setDarkMode];
 }
